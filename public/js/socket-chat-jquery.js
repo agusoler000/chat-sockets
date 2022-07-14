@@ -4,11 +4,13 @@
 
 const divUsers = $('#divUsuarios');
 const formSend = $('#formsend');
+const firstTitleOfRoom = $('#firstTitleOfRoom');
 const message = $('#messagetxt');
 const divChatbox = $('#divChatbox');
 
 const renderUsers = (users) => {
   console.log(users);
+  firstTitleOfRoom.html(`  ${param.get('room')} `);
   let html = '';
   html += `<li>
 
