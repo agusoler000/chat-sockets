@@ -13,7 +13,7 @@ const user = {
 
 socket.on('connect', function () {
   socket.emit('enterToChat', user, (resp) => {
-    console.log(resp);
+    renderUsers(resp);
   });
 });
 
@@ -37,10 +37,12 @@ socket.on('disconnect', function () {
 // Escuchar información
 socket.on('createMessage', function (mensaje) {
   console.log('Server:', mensaje);
+  renderMessages(mensaje, false);
+  scrollBottom();
 });
 //escucha cambios de usuarios
 socket.on('personsList', function (users) {
-  console.log(users);
+  renderUsers(users);
 });
 
 //PRIVATE MESSAGES

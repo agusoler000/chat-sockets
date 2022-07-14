@@ -18,6 +18,12 @@ io.on('connection', (client) => {
       .to(data.room)
       .emit('personsList', user.gerUsersByRoom(data.room));
     callback(user.gerUsersByRoom(data.room));
+    client.broadcast
+      .to(data.room)
+      .emit(
+        'createMessage',
+        createMessage('Admin', `The user  "${data.name}" joined the chat`)
+      );
   });
 
   client.on('disconnect', () => {
@@ -38,10 +44,12 @@ io.on('connection', (client) => {
       .emit('personsList', user.gerUsersByRoom(deletedUser.room));
   });
 
-  client.on('createMessage', (data) => {
+  client.on('createMessage', (data, callback) => {
     const userChat = user.getUserById(client.id);
     const message = createMessage(userChat.name, data.message);
     client.broadcast.to(userChat.room).emit('createMessage', message);
+
+    callback(message);
   });
 
   client.on('privateMessage', (data) => {
