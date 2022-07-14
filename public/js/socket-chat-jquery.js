@@ -20,7 +20,7 @@ const renderUsers = (users) => {
   for (let index = 0; index < users.length; index++) {
     html += `<li>
   <a data-id="${users[index].id}" href="javascript:void(0)" >
-  <img   src="assets/images/users/1.jpg"   alt="user-img"    class="img-circle"
+  <img   src="https://escolalluisvives.cat/web/wp-content/uploads/2022/01/person-icon.png"   alt="user-img"    class="img-circle"
     />
     <span
       >${users[index].name}
@@ -77,7 +77,7 @@ const renderMessages = (message, me) => {
   
       ${
         message.name !== 'Admin'
-          ? '<img src="assets/images/users/1.jpg" alt="user" />'
+          ? '<img src="https://media.istockphoto.com/vectors/we-want-you-icon-vector-id1161260292?k=20&m=1161260292&s=170667a&w=0&h=EZOYCnoBLAhFWKLPksPe1xLPseop6ZJWtU8zuiFnyM4=" alt="user" />'
           : ''
       }
     </div>
@@ -102,7 +102,7 @@ const renderMessages = (message, me) => {
                                 </div>
                               </div>
                               <div class="chat-img">
-                                <img src="assets/images/users/5.jpg" alt="user" />
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvfpdi6szr1cJp8gZxP0NNZktzpJ00a0Cq2bNfYwXn_jgIl7PUQs2yE-4arnwO0rHgXCg&usqp=CAU" alt="user" />
                               </div>
                               <div class="chat-time">${hour}</div>
                             </li>`;
